@@ -22,5 +22,5 @@ jobs:
       - name: Run docker image
         uses: ./scraper
         with:
-          build: false
           category: diapers
+          github_token: ${{ secrets.GITHUB_TOKEN }}
