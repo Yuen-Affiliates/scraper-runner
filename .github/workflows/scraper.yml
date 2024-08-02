@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      packages: read
+      packages: write
 
     steps:
       - name: Check out repository
