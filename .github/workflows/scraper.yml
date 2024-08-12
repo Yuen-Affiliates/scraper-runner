@@ -1,9 +1,23 @@
 name: Scraper
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: '0 10 * * *'
+    
+  workflow_dispatch:
+    inputs:
+      count:
+        description: Count
+        required: false
+        type: number
+      sources:
+        description: Sources
+        required: false
+        type: string
+      verbose:
+        description: Verbose
+        required: false
+        type: boolean
 
 jobs:
   scraper:
@@ -23,4 +37,7 @@ jobs:
         uses: ./scraper
         with:
           category: diapers
+          count: ${{ inputs.count }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          sources: ${{ inputs.sources }}
+          verbose: ${{ inputs.verbose }}
