@@ -6,14 +6,27 @@ on:
     
   workflow_dispatch:
     inputs:
+      category:
+        description: Category
+        required: false
+        type: string
+        default: diapers
       count:
         description: Count
         required: false
         type: number
+      ignoreErrors:
+        description: Verbose
+        required: false
+        type: boolean
       sources:
         description: Sources
         required: false
         type: string
+      update:
+        description: Verbose
+        required: false
+        type: boolean
       verbose:
         description: Verbose
         required: false
@@ -36,8 +49,10 @@ jobs:
       - name: Run docker image
         uses: ./scraper
         with:
-          category: diapers
+          category: ${{ inputs.category }}
           count: ${{ inputs.count }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          ignoreErrors: ${{ inputs.ignoreErrors }}
           sources: ${{ inputs.sources }}
+          update: ${{ inputs.update }}
           verbose: ${{ inputs.verbose }}
