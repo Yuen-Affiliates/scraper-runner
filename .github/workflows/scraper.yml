@@ -11,21 +11,21 @@ on:
         required: false
         type: string
         default: diapers
-      count:
-        description: Count
-        required: false
-        type: number
-      ignoreErrors:
-        description: Ignore Errors
-        required: false
-        type: boolean
-        default: true
       sources:
         description: Sources
         required: false
         type: string
+      count:
+        description: Count
+        required: false
+        type: number
       update:
         description: Update
+        required: false
+        type: boolean
+        default: true
+      ignoreErrors:
+        description: Ignore Errors
         required: false
         type: boolean
         default: true
