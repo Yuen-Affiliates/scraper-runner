@@ -55,6 +55,6 @@ jobs:
           count: ${{ inputs.count }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           ignoreErrors: ${{ contains(inputs.ignoreErrors, true) }}
-          sources: ${{ inputs.sources }}
+          sources: ${{ inputs.sources || 'costco,ebay,target' }}
           update: ${{ contains(inputs.update, true) }}
           verbose: ${{ contains(inputs.verbose, false) }}
