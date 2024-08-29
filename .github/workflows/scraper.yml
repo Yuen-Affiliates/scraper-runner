@@ -20,14 +20,17 @@ on:
         required: false
         type: number
       update:
+        default: true
         description: Update
         required: false
         type: boolean
       ignoreErrors:
+        default: true
         description: Ignore Errors
         required: false
         type: boolean
       verbose:
+        default: false
         description: Verbose
         required: false
         type: boolean
@@ -52,7 +55,7 @@ jobs:
           category: ${{ inputs.category || 'diapers' }}
           count: ${{ inputs.count }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          ignoreErrors: ${{ contains(inputs.ignoreErrors, true) }}
+          ignoreErrors: ${{ contains(inputs, ignoreErrors) && inputs.ignoreErrors || true }}
           sources: ${{ inputs.sources || 'costco,ebay,target' }}
-          update: ${{ contains(inputs.update, true) }}
-          verbose: ${{ contains(inputs.verbose, false) }}
+          update: ${{ contains(inputs, update) && inputs.update || true }}
+          verbose: ${{ contains(inputs, verbose) && inputs.verbose || false }}
