@@ -23,12 +23,10 @@ on:
         description: Update
         required: false
         type: boolean
-        default: true
       ignoreErrors:
         description: Ignore Errors
         required: false
         type: boolean
-        default: true
       verbose:
         description: Verbose
         required: false
