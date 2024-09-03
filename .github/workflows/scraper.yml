@@ -55,7 +55,7 @@ jobs:
           category: ${{ inputs.category || 'diapers' }}
           count: ${{ inputs.count }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          ignoreErrors: ${{ contains(inputs, ignoreErrors) && inputs.ignoreErrors || true }}
+          ignoreErrors: ${{ contains(inputs, 'ignoreErrors') && inputs.ignoreErrors || true }}
           sources: ${{ inputs.sources || 'costco,ebay,target' }}
-          update: ${{ contains(inputs, update) && inputs.update || true }}
-          verbose: ${{ contains(inputs, verbose) && inputs.verbose || false }}
+          update: ${{ contains(inputs, 'update') && inputs.update || true }}
+          verbose: ${{ contains(inputs, 'verbose') && inputs.verbose || false }}
